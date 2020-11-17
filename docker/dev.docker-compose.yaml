@@ -8,6 +8,8 @@ services:
     volumes:
       - cheese_mysql_backup:/docker-entrypoint-initdb.d
       - cheese_mysql_data:/var/lib/mysql
+    ports:
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: terpusat_v1

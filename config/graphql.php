@@ -2,11 +2,6 @@
 
 declare(strict_types=1);
 
-use example\Mutation\ExampleMutation;
-use example\Query\ExampleQuery;
-use example\Type\ExampleRelationType;
-use example\Type\ExampleType;
-
 return [
 
     // The prefix for routes
@@ -101,10 +96,11 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // 'example_query' => ExampleQuery::class,
+                'users' => App\GraphQL\Query\UsersQuery::class,
             ],
             'mutation' => [
-                // 'example_mutation'  => ExampleMutation::class,
+                'insert_user' => App\GraphQL\Mutation\InsertUserMutation::class,
+                'update_user_password' => App\GraphQL\Mutation\UpdateUserPasswordMutation::class
             ],
             'middleware' => [],
             'method' => ['get', 'post'],
@@ -121,9 +117,8 @@ return [
     // ]
     //
     'types' => [
-        // 'example'           => ExampleType::class,
-        // 'relation_example'  => ExampleRelationType::class,
-        // \Rebing\GraphQL\Support\UploadType::class,
+        'UserInput' => App\GraphQL\Input\UserInput::class,
+        'user' => App\GraphQL\Type\UserType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

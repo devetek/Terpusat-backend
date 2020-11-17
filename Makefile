@@ -7,4 +7,5 @@ run-dev:
 	@ test -f docker/redis || mkdir -p docker/redis
 	@ test -d vendor || composer update -vvv
 	@ test -d vendor || composer install -vvv
+	@ docker-compose -f docker/dev.docker-compose.yaml down --remove-orphans
 	@ docker-compose -f docker/dev.docker-compose.yaml up
