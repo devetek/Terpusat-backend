@@ -48,4 +48,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the companies for the user.
+     */
+    public function companies()
+    {
+        return $this->hasMany('App\Models\Company', 'user_id');
+    }
 }

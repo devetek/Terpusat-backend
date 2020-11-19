@@ -1,3 +1,8 @@
+## Design
+
+![Arch](design/db_v1.png)
+
+
 ## Development
 Pastikan docker, docker-compose terinstall sebelum menjalankan aplikasi. Jalankan command di bawah ini di root directory:
 ```sh

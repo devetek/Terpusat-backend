@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Brand extends Model
 {
     use HasFactory;
 
-    /**
+     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'company';
+    protected $table = 'brand';
 
     /**
      * The attributes that are mass assignable.
@@ -24,22 +24,14 @@ class Company extends Model
     protected $fillable = [
         'name',
         'description',
-        'user_id',
+        'company_id',
     ];
 
     /**
-     * Get the owner that owns the company.
+     * Get the company record associated with the brand.
      */
-    public function owner()
+    public function company()
     {
-        return $this->belongsTo('App\Models\User', 'user_id');
-    }
-
-    /**
-     * Get the brands for the company.
-     */
-    public function brands()
-    {
-        return $this->hasMany('App\Models\Brand', 'company_id');
+        return $this->hasOne('App\Models\Company');
     }
 }

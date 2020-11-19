@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Company extends Model
      *
      * @var string
      */
-    protected $table = 'company';
+    protected $table = 'product';
 
     /**
      * The attributes that are mass assignable.
@@ -24,22 +24,15 @@ class Company extends Model
     protected $fillable = [
         'name',
         'description',
-        'user_id',
+        'price',
     ];
 
     /**
-     * Get the owner that owns the company.
+     * The attributes that should be cast.
+     *
+     * @var array
      */
-    public function owner()
-    {
-        return $this->belongsTo('App\Models\User', 'user_id');
-    }
-
-    /**
-     * Get the brands for the company.
-     */
-    public function brands()
-    {
-        return $this->hasMany('App\Models\Brand', 'company_id');
-    }
+    protected $casts = [
+        'price'   => 'integer'
+    ];
 }

@@ -100,6 +100,7 @@ return [
             ],
             'mutation' => [
                 'insert_user' => App\GraphQL\Mutation\InsertUserMutation::class,
+                'insert_company' => App\GraphQL\Mutation\InsertCompanyMutation::class,
                 'update_user_password' => App\GraphQL\Mutation\UpdateUserPasswordMutation::class
             ],
             'middleware' => [],
@@ -118,7 +119,9 @@ return [
     //
     'types' => [
         'UserInput' => App\GraphQL\Input\UserInput::class,
+        'CompanyInput' => App\GraphQL\Input\CompanyInput::class,
         'user' => App\GraphQL\Type\UserType::class,
+        'company' => App\GraphQL\Type\CompanyType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request
