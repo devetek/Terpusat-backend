@@ -101,6 +101,9 @@ return [
             'mutation' => [
                 'insert_user' => App\GraphQL\Mutation\InsertUserMutation::class,
                 'insert_company' => App\GraphQL\Mutation\InsertCompanyMutation::class,
+                'insert_brand' => App\GraphQL\Mutation\InsertBrandMutation::class,
+                'insert_category' => App\GraphQL\Mutation\InsertCategoryMutation::class,
+                'insert_product' => App\GraphQL\Mutation\InsertProductMutation::class,
                 'update_user_password' => App\GraphQL\Mutation\UpdateUserPasswordMutation::class
             ],
             'middleware' => [],
@@ -120,8 +123,14 @@ return [
     'types' => [
         'UserInput' => App\GraphQL\Input\UserInput::class,
         'CompanyInput' => App\GraphQL\Input\CompanyInput::class,
+        'BrandInput' => App\GraphQL\Input\BrandInput::class,
+        'CategoryInput' => App\GraphQL\Input\CategoryInput::class,
+        'ProductInput' => App\GraphQL\Input\ProductInput::class,
         'user' => App\GraphQL\Type\UserType::class,
         'company' => App\GraphQL\Type\CompanyType::class,
+        'brand' => App\GraphQL\Type\BrandType::class,
+        'category' => App\GraphQL\Type\CategoryType::class,
+        'product' => App\GraphQL\Type\ProductType::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

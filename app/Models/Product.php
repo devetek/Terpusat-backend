@@ -35,4 +35,20 @@ class Product extends Model
     protected $casts = [
         'price'   => 'integer'
     ];
+
+    /**
+     * Get brand for the product.
+     */
+    public function brand()
+    {
+        return $this->belongsTo('App\Models\Brand', 'brand_id');
+    }
+
+    /**
+     * Get category for the product.
+     */
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'category_id');
+    }
 }

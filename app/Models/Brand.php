@@ -28,10 +28,10 @@ class Brand extends Model
     ];
 
     /**
-     * Get the company record associated with the brand.
+     * Get the company that owns the brand.
      */
     public function company()
     {
-        return $this->hasOne('App\Models\Company');
+        return $this->belongsTo('App\Models\Company', 'company_id');
     }
 }
