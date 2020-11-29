@@ -17,6 +17,15 @@ class Brand extends Model
     protected $table = 'brand';
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'description' => '',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

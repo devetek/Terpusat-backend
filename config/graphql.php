@@ -101,6 +101,7 @@ return [
             'mutation' => [
                 'insert_user' => App\GraphQL\Mutation\InsertUserMutation::class,
                 'insert_company' => App\GraphQL\Mutation\InsertCompanyMutation::class,
+                'update_company' => App\GraphQL\Mutation\UpdateCompanyMutation::class,
                 'insert_brand' => App\GraphQL\Mutation\InsertBrandMutation::class,
                 'insert_category' => App\GraphQL\Mutation\InsertCategoryMutation::class,
                 'insert_product' => App\GraphQL\Mutation\InsertProductMutation::class,

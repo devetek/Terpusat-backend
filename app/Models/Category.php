@@ -17,6 +17,15 @@ class Category extends Model
     protected $table = 'category';
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'description' => '',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

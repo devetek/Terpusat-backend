@@ -17,6 +17,15 @@ class Product extends Model
     protected $table = 'product';
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'description' => '',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

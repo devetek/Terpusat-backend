@@ -15,9 +15,11 @@ class CreateBrandTable extends Migration
     {
         Schema::create('brand', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('description');
+            $table->string('name')->unique()->nullable(false);
+            $table->longText('description')->nullable(true);
+            $table->unsignedBigInteger('company_id');
             $table->timestamps();
+            $table->foreign('company_id')->references('id')->on('company');
         });
     }
 

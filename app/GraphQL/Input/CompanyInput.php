@@ -31,6 +31,7 @@ class CompanyInput extends InputType
                 'alias' => 'user_id',
                 'description' => 'User id (integer)',
                 'type' => Type::int(),
+                'rules' => ['required']
             ],
         ];
     }

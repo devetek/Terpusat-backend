@@ -10,10 +10,10 @@ use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Mutation;
 
-class InsertCompanyMutation extends Mutation
+class UpdateCompanyMutation extends Mutation
 {
     protected $attributes = [
-        'name' => 'InsertCompany'
+        'name' => 'UpdateCompany'
     ];
 
     public function type(): Type
@@ -24,6 +24,9 @@ class InsertCompanyMutation extends Mutation
     public function args(): array
     {
         return [
+            'id' => [
+                'type' => Type::nonNull(Type::int())
+            ],
             'input' => [
                 'type' => GraphQL::type('CompanyInput')
             ]
@@ -33,10 +36,8 @@ class InsertCompanyMutation extends Mutation
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
         try {
-            $company = new Company;
+            $company = Company::find(1);
 
-            $company->name = $args['input']['name'];
-            
             if (@$args['input']['name']) {
                 $company->name = $args['input']['name'];
             }
@@ -48,6 +49,7 @@ class InsertCompanyMutation extends Mutation
             if (@$args['input']['user_id']) {
                 $company->user_id = $args['input']['user_id'];
             }
+
     
             $company->save();
 

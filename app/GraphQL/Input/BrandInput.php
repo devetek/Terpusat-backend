@@ -31,6 +31,7 @@ class BrandInput extends InputType
                 'alias' => 'company_id',
                 'description' => 'Company id (integer)',
                 'type' => Type::int(),
+                'rules' => ['required']
             ],
         ];
     }

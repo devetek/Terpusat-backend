@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateNameUniqueToCompanyTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class UpdateNameUniqueToCompanyTable extends Migration
      */
     public function up()
     {
-        Schema::table('company', function (Blueprint $table) {
-            $table->string('name')->unique()->nullable(false)->change();
+        Schema::create('category', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->longText('description')->nullable(true);
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class UpdateNameUniqueToCompanyTable extends Migration
      */
     public function down()
     {
-        Schema::table('company', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('category');
     }
 }
