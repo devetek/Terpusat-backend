@@ -100,9 +100,11 @@ return [
             ],
             'mutation' => [
                 'insert_user' => App\GraphQL\Mutation\InsertUserMutation::class,
+                'update_user' => App\GraphQL\Mutation\UpdateUserMutation::class,
                 'insert_company' => App\GraphQL\Mutation\InsertCompanyMutation::class,
                 'update_company' => App\GraphQL\Mutation\UpdateCompanyMutation::class,
                 'insert_brand' => App\GraphQL\Mutation\InsertBrandMutation::class,
+                'update_brand' => App\GraphQL\Mutation\UpdateBrandMutation::class,
                 'insert_category' => App\GraphQL\Mutation\InsertCategoryMutation::class,
                 'insert_product' => App\GraphQL\Mutation\InsertProductMutation::class,
                 'update_user_password' => App\GraphQL\Mutation\UpdateUserPasswordMutation::class

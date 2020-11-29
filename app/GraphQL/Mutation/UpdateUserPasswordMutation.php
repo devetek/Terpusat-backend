@@ -12,7 +12,7 @@ use Rebing\GraphQL\Support\Mutation;
 class UpdateUserPasswordMutation extends Mutation
 {
     protected $attributes = [
-        'name' => 'updateUserPassword'
+        'name' => 'UpdateUserPassword'
     ];
 
     public function type(): Type
@@ -31,7 +31,8 @@ class UpdateUserPasswordMutation extends Mutation
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
         $user = User::find($args['id']);
-        if(!$user) {
+
+        if (!$user) {
             return null;
         }
 
