@@ -36,7 +36,7 @@ class UpdateCompanyMutation extends Mutation
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
         try {
-            $company = Company::find(1);
+            $company = Company::find($args['id']);
 
             if (@$args['input']['name']) {
                 $company->name = $args['input']['name'];
@@ -50,8 +50,9 @@ class UpdateCompanyMutation extends Mutation
                 $company->user_id = $args['input']['user_id'];
             }
 
-    
-            $company->save();
+            if (@$company) {
+                $company->save();
+            }
 
             return $company;
         } catch(Exception $e) {
