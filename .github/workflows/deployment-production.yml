@@ -21,7 +21,7 @@ jobs:
           cd ${{ secrets.WORKDIR }}
           git checkout .
           git pull origin master
-          test -f .env && echo "Config already exist" || echo "Copy new environment config" && cp .env.exmaple backup 
+          test -f .env && echo "Config already exist" || echo "Copy new environment config" && cp .env.example backup 
           test -f backup && export DEPLOYING=progress || echo "Configuration already set"
           test $DEPLOYING != "progress" && echo "No need update configuration..." || sed -i 's/terpusat_v1/${{ secrets.DB_DATABASE }}/g' backup
           test $DEPLOYING != "progress" || sed -i 's/terpusatuser/${{ secrets.DB_USERNAME }}/g' backup
