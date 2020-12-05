@@ -33,4 +33,4 @@ jobs:
           test $(grep -r "APP_KEY=base64" .env) != "" && echo "Already has private key" || echo "Generate private key" && php artisan key:generate -n
           composer install --no-scripts
           php artisan migrate --force
-          export DEPLOYING=done
+          export DEPLOYING=done && echo $DEPLOYING
