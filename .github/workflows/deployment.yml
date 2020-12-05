@@ -1,0 +1,27 @@
+name: Terpusat Backend
+
+on:
+  push:
+    branches: [ production ]
+  pull_request:
+    branches: [ production ]
+
+jobs:
+  terpusat-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Copy .env
+      run: |
+        echo "Welcome to Terpusat Backend First Action !\n"
+        echo "Let do automate....."
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@v2.1.5
+      run: |
+        cd api.terpusat.com/
+        ls
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
