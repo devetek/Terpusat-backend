@@ -7,15 +7,15 @@ on:
     branches: [ master ]
 
 jobs:
-  terpusat-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Copy .env
+    - name: Welcome Page
       run: |
         echo "Welcome to Terpusat Backend First Action !\n"
         echo "Let do automate....."
-    - name: multiple command
+    - name: Deploy Production
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
