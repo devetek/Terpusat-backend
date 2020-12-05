@@ -1,0 +1,36 @@
+name: Terpusat Backend
+
+on:
+  push:
+    branches: [ master ]
+  # pull_request:
+  #   branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy Production
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd ${{ secrets.WORKDIR }}
+          git checkout .
+          git pull origin master
+          test -f .env && echo "Config already exist" || echo "Copy new environment config" && cp .env.exmaple backup 
+          test -f backup && export DEPLOYING=progress || echo "Configuration already set"
+          test $DEPLOYING != "progress" && echo "No need update configuration..." || sed -i 's/terpusat_v1/${{ secrets.DB_DATABASE }}/g' backup
+          test $DEPLOYING != "progress" || sed -i 's/terpusatuser/${{ secrets.DB_USERNAME }}/g' backup
+          test $DEPLOYING != "progress" || sed -i 's/development/${{ secrets.DB_PASSWORD }}/g' backup
+          test $DEPLOYING != "progress" || sed -i 's/APP_URL=http:\/\/localhost/APP_URL=${{ secrets.APP_URL }}/g' backup
+          test $DEPLOYING != "progress" || sed -i 's/APP_ENV=local/APP_ENV=production/g' backup
+          test $DEPLOYING != "progress" || sed -i 's/APP_DEBUG=true/APP_DEBUG=false/g' backup
+          test $DEPLOYING != "progress" || mv backup .env
+          test $(grep -r "APP_KEY=base64" .env) != "" && echo "Already has private key" || echo "Generate private key" && php artisan key:generate -n
+          composer install --no-scripts
+          php artisan migrate --force
+          export DEPLOYING=done
