@@ -97,6 +97,7 @@ return [
         'default' => [
             'query' => [
                 'users' => App\GraphQL\Query\UsersQuery::class,
+                'user' => App\GraphQL\Query\UserQuery::class,
             ],
             'mutation' => [
                 'insert_user' => App\GraphQL\Mutation\InsertUserMutation::class,
@@ -106,7 +107,9 @@ return [
                 'insert_brand' => App\GraphQL\Mutation\InsertBrandMutation::class,
                 'update_brand' => App\GraphQL\Mutation\UpdateBrandMutation::class,
                 'insert_category' => App\GraphQL\Mutation\InsertCategoryMutation::class,
+                'update_category' => App\GraphQL\Mutation\UpdateCategoryMutation::class,
                 'insert_product' => App\GraphQL\Mutation\InsertProductMutation::class,
+                'update_product' => App\GraphQL\Mutation\UpdateProductMutation::class,
                 'update_user_password' => App\GraphQL\Mutation\UpdateUserPasswordMutation::class
             ],
             'middleware' => [],

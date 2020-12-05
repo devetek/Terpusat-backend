@@ -9,6 +9,10 @@ Pastikan docker, docker-compose terinstall sebelum menjalankan aplikasi. Jalanka
 make run-dev
 ```
 
+## Referensi
+- [Laravel Lighthouse - GraphQL](https://www.toptal.com/graphql/laravel-graphql-server-tutorial)
+- [Laravel Lighthouse - GraphQL Test](https://dev.to/marvinrabe/testing-graphql-apis-with-laravel-49p1)
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
