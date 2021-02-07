@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return Redirect::to("https://www.terpusat.com/", 302);
 });
+
+Route::get('/tanah-bogor', function () {
+    return Redirect::to("https://docs.google.com/spreadsheets/d/1foZGfn66UXWxRdYj4e-qY6CfuIXfGq-PJ-lRCfEIWak/edit?usp=sharing", 302);
+});
